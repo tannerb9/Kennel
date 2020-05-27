@@ -4,6 +4,7 @@ import LocationManager from "../../modules/locationManager";
 
 const LocationList = () => {
   const [locations, setLocations] = useState([]);
+
   const getLocations = () => {
     return LocationManager.getAll().then(locations => {
       setLocations(locations)
@@ -15,7 +16,7 @@ const LocationList = () => {
 
   return (
     <div className="container-cards">
-      {locations.map(location => <LocationCard />)}
+      {locations.map(location => <LocationCard key={location.id} location={location} />)}
     </div>
   )
 };
