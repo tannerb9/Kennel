@@ -1,0 +1,67 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "breed": "Poodle"
+    },
+    {
+      "id": 2,
+      "name": "Decker",
+      "breed": "German Shepherd"
+    },
+    {
+      "id": 3,
+      "name": "Esme",
+      "breed": "Pitbull"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Mark",
+      "role": "Manager"
+    },
+    {
+      "id": 2,
+      "name": "Jeff",
+      "role": "Cashier"
+    },
+    {
+      "id": 3,
+      "name": "Louis",
+      "role": "Groomer"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Olaf",
+      "number_of_dogs": 1
+    },
+    {
+      "id": 2,
+      "name": "Jeff",
+      "number_of_dogs": 2
+    },
+    {
+      "id": 3,
+      "name": "Kyle",
+      "number_of_dogs": 1
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "address": "123 Not This St"
+    },
+    {
+      "id": 2,
+      "address": "456 This St"
+    },
+    {
+      "id": 3,
+      "address": "789 Yonder Way"
+    }
+  ]
+}
