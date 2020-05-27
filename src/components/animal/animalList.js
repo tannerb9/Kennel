@@ -26,4 +26,4 @@ const AnimalList = () => {
     </div>
   );
 };
-export default AnimalList
+export default AnimalList;
