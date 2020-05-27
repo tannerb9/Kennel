@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import EmployeeCard from "./employeeCard";
 import EmployeeManager from "../../modules/employeeManager"
-import AnimalList from '../animal/animalList';
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
-  const getEmployees = () => {
 
+  const getEmployees = () => {
     return EmployeeManager.getAll().then(employees => {
       setEmployees(employees)
     });
@@ -18,7 +17,7 @@ const EmployeeList = () => {
 
   return (
     <div className="container-cards">
-      {employees.map(employee => <EmployeeCard />)}
+      {employees.map(employee => <EmployeeCard key={employee.id} employee={employee} />)}
     </div>
   );
 };
