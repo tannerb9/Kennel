@@ -18,7 +18,7 @@ const EmployeeList = () => {
 
   return (
     <div className="container-cards">
-      {AnimalList.map(employee => <EmployeeCard />)}
+      {employees.map(employee => <EmployeeCard />)}
     </div>
   );
 };

@@ -2,9 +2,9 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/home";
 import AnimalList from "./animal/animalList";
-import LocationCard from "./location/locationCard";
-import EmployeeCard from "./employee/employeeCard";
-import OwnerCard from "./owner/ownerCard";
+import LocationList from "./location/locationList";
+import EmployeeList from "./employee/employeeList";
+import OwnerList from "./owner/ownerList";
 
 const ApplicationViews = () => {
   return (
@@ -25,19 +25,19 @@ const ApplicationViews = () => {
       <Route
         path="/locations"
         render={props => {
-          return <LocationCard />;
+          return <LocationList />;
         }}
       />
       <Route
         path="/owners"
         render={props => {
-          return <OwnerCard />;
+          return <OwnerList />;
         }}
       />
       <Route
         path="/employees"
         render={props => {
-          return <EmployeeCard />;
+          return <EmployeeList />;
         }}
       />
     </React.Fragment>

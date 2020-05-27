@@ -5,6 +5,6 @@ export default {
     return fetch(`${remoteURL}/locations/${id}`).then(response => response.json());
   },
   getAll() {
-    return fetch(`${remoteURL}/locations`).then(respone => response.json());
+    return fetch(`${remoteURL}/locations`).then(response => response.json());
   }
 }
