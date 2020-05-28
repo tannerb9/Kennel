@@ -56,14 +56,17 @@
   "locations": [
     {
       "id": 1,
+      "name": "Nowhere Clinic",
       "address": "123 Not This St"
     },
     {
       "id": 2,
+      "name": "Somewhere Clinic",
       "address": "456 This St"
     },
     {
       "id": 3,
+      "name": "That'a Way Clinic",
       "address": "789 Yonder Way"
     }
   ]
