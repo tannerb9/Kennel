@@ -2,6 +2,7 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/home";
 import AnimalList from "./animal/animalList";
+import AnimalDetail from "./animal/animalDetail"
 import LocationList from "./location/locationList";
 import EmployeeList from "./employee/employeeList";
 import OwnerList from "./owner/ownerList";
@@ -17,9 +18,16 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/animals"
         render={props => {
           return <AnimalList />;
+        }}
+      />
+      <Route
+        path="/animals/:animalId(\d+)"
+        render={props => {
+          return <AnimalDetail animalId={parseInt(props.match.params.animalId)} />;
         }}
       />
       <Route

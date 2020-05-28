@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import "./animalCard.css"
 
 const AnimalCard = (props) => {
@@ -13,6 +14,9 @@ const AnimalCard = (props) => {
         </h3>
         <p>Breed: {props.animal.breed}</p>
         <button type="button" onClick={() => { props.checkoutAnimal(props.animal.id) }}>Check Out</button>
+        <Link to={`/animals/${props.animal.id}`}>
+          <button>Details</button>
+        </Link>
       </div>
     </div>
   );
