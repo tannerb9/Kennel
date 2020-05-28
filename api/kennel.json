@@ -28,7 +28,7 @@
     {
       "id": 2,
       "name": "Jeff",
-      "role": "Cashier"
+      "role": "Janitor"
     },
     {
       "id": 3,
@@ -40,17 +40,17 @@
     {
       "id": 1,
       "name": "Olaf",
-      "number_of_dogs": 1
+      "pet_name": "Blaze"
     },
     {
       "id": 2,
-      "name": "Jeff",
-      "number_of_dogs": 2
+      "name": "Terry",
+      "pet_name": "Decker"
     },
     {
       "id": 3,
       "name": "Kyle",
-      "number_of_dogs": 1
+      "pet_name": "Esme"
     }
   ],
   "locations": [

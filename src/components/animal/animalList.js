@@ -11,13 +11,17 @@ const AnimalList = () => {
     });
   };
 
+  const checkoutAnimal = id => {
+    AnimalManager.delete(id).then(() => AnimalManager.getAll().then(setAnimals))
+  }
+
   useEffect(() => {
     getAnimals();
   }, []);
 
   return (
     <div className="container-cards">
-      {animals.map(animal => <AnimalCard key={animal.id} animal={animal} />)}
+      {animals.map(animal => <AnimalCard key={animal.id} animal={animal} checkoutAnimal={checkoutAnimal} />)}
     </div>
   );
 };
