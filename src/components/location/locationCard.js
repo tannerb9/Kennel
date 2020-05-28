@@ -9,8 +9,8 @@ const locationCard = (props) => {
           Address:
         </h3>
         <address className="card-location">{props.location.address}</address>
+        <button type="button" onClick={() => props.removeLocation(props.location.id)}>Remove Location</button>
       </div>
-
     </div>
   )
 };
