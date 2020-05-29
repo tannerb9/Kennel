@@ -14,7 +14,7 @@
 
 .card-content h3 {
   margin-top: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0;
   font-weight: bold;
   color: rgb(43, 112, 241);
 }
@@ -44,4 +44,9 @@
 
 .card button:hover {
   background-color: darkblue;
+}
+
+.card-petname {
+  text-align: center;
+  font-size: 2em;
 }
