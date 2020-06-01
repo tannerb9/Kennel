@@ -17,6 +17,12 @@
       "name": "Esme",
       "breed": "Pitbull",
       "pic": "Pitbull.jpg"
+    },
+    {
+      "name": "Foxley",
+      "breed": "Unknown",
+      "pic": "",
+      "id": 4
     }
   ],
   "employees": [

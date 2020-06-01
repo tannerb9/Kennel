@@ -3,6 +3,7 @@ import React from "react";
 import Home from "./home/home";
 import AnimalList from "./animal/animalList";
 import AnimalDetail from "./animal/animalDetail"
+import AnimalForm from "./animal/animalForm"
 import LocationList from "./location/locationList";
 import LocationDetail from "./location/locationDetail"
 import EmployeeList from "./employee/employeeList";
@@ -22,13 +23,19 @@ const ApplicationViews = () => {
         exact
         path="/animals"
         render={props => {
-          return <AnimalList />;
+          return <AnimalList {...props} />;
         }}
       />
       <Route
         path="/animals/:animalId(\d+)"
         render={props => {
           return <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props} />;
+        }}
+      />
+      <Route
+        path="/animals/new"
+        render={props => {
+          return <AnimalForm {...props} />;
         }}
       />
       <Route
@@ -53,7 +60,7 @@ const ApplicationViews = () => {
       <Route
         path="/employees"
         render={props => {
-          return <EmployeeList />;
+          return <EmployeeList {...props} />;
         }}
       />
     </React.Fragment>

@@ -11,5 +11,14 @@ export default {
     return fetch(`${remoteURL}/employees/${id}`, {
       method: "DELETE"
     }).then(result => result.json())
-  }
+  },
+  post(newEmployee) {
+    return fetch(`${remoteURL}/employees`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/JSON"
+      },
+      body: JSON.stringify(newEmployee)
+    }).then(response => response.json());
+  };
 }

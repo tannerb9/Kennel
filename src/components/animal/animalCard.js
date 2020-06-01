@@ -10,7 +10,7 @@ const AnimalCard = (props) => {
           {props.animal.name}
         </h3>
         <picture>
-          <img src={require(`./${props.animal.pic}`)} alt={props.animal.name} />
+          {/* <img src={require(`./${props.animal.pic}`)} alt={props.animal.name} /> */}
         </picture>
         <p>Breed: {props.animal.breed}</p>
         <Link to={`/animals/${props.animal.id}`}>

@@ -20,9 +20,14 @@ const EmployeeList = () => {
   }, []);
 
   return (
-    <div className="container-cards">
-      {employees.map(employee => <EmployeeCard key={employee.id} employee={employee} terminateEmployee={terminateEmployee} />)}
-    </div>
+    <>
+      <section className="section-content">
+        <button type="button" disabled={isLoading} className="btn" onClick={() => props.history.push("employees/new")}>Create New Employee</button>
+      </section>
+      <div className="container-cards">
+        {employees.map(employee => <EmployeeCard key={employee.id} employee={employee} terminateEmployee={terminateEmployee} />)}
+      </div>
+    </>
   );
 };
 
