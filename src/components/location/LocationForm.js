@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-import EmployeeManager from "../../modules/employeeManager";
-// import "./employeeForm.css";
+import LocationManager from "../../modules/locationManager";
+import "./locationForm.css";
 
-const EmployeeForm = (props) => {
-  const [employee, setEmployee] = useState({ name: "", role: "" });
+const LocationForm = (props) => {
+  const [location, setLocation] = useState({ name: "", address: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = (evt) => {
-    const stateToChange = { ...employee };
-    stateToChange[evt.target.id] = evt.target.value;
-    setEmployee(stateToChange);
+    const changeToState = { ...location };
+    changeToState[evt.target.id] = evt.target.value;
+    setLocation(changeToState);
   };
 
-  const constructNewEmployee = (evt) => {
+  const constructNewLocation = (evt) => {
     evt.preventDefault();
-    if (employee.name === "" || employee.role === "") {
+    if (location.name === "" || location.address === "") {
       window.alert("Please complete all fields.");
     } else {
       setIsLoading(true);
-      EmployeeManager.post(employee).then(() =>
-        props.history.push("/employees")
+      LocationManager.post(location).then(() =>
+        props.history.push("/locations")
       );
     }
   };
@@ -34,23 +34,23 @@ const EmployeeForm = (props) => {
               required
               onChange={handleFieldChange}
               id="name"
-              placeholder="Employee name"
+              placeholder="Location name"
             />
             <label htmlFor="name">Name</label>
             <input
               type="text"
               required
               onChange={handleFieldChange}
-              id="role"
-              placeholder="Employee role"
+              id="address"
+              placeholder="Address"
             />
-            <label htmlFor="role">Role</label>
+            <label htmlFor="address">Address</label>
           </div>
           <div className="alignRight">
             <button
               type="button"
               disabled={isLoading}
-              onClick={constructNewEmployee}
+              onClick={constructNewLocation}
             >
               Submit
             </button>
@@ -61,4 +61,4 @@ const EmployeeForm = (props) => {
   );
 };
 
-export default EmployeeForm;
+export default LocationForm;

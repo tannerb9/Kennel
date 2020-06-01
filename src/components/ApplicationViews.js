@@ -6,6 +6,7 @@ import AnimalDetail from "./animal/animalDetail";
 import AnimalForm from "./animal/animalForm";
 import LocationList from "./location/locationList";
 import LocationDetail from "./location/locationDetail";
+import LocationForm from "./location/LocationForm";
 import EmployeeList from "./employee/employeeList";
 import EmployeeForm from "./employee/employeeForm";
 import OwnerList from "./owner/ownerList";
@@ -48,7 +49,7 @@ const ApplicationViews = () => {
         exact
         path="/locations"
         render={(props) => {
-          return <LocationList />;
+          return <LocationList {...props} />;
         }}
       />
       <Route
