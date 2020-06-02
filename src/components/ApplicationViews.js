@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import Home from "./home/home";
 import AnimalList from "./animal/animalList";
@@ -11,10 +11,14 @@ import EmployeeList from "./employee/employeeList";
 import EmployeeForm from "./employee/employeeForm";
 import OwnerList from "./owner/ownerList";
 import OwnerForm from "./owner/OwnerForm";
+import Login from "./auth/Login";
+
+const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
 const ApplicationViews = () => {
   return (
     <React.Fragment>
+      <Route path="/login" component={Login} />
       <Route
         exact
         path="/"
