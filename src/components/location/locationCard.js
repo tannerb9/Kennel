@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import "./locationCard.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import "../../styles/cards.css";
 
 const locationCard = (props) => {
   return (
@@ -11,10 +11,15 @@ const locationCard = (props) => {
         <Link to={`/locations/${props.location.id}`}>
           <button>Details</button>
         </Link>
-        <button type="button" onClick={() => props.removeLocation(props.location.id)}>Remove Location</button>
+        <button
+          type="button"
+          onClick={() => props.removeLocation(props.location.id)}
+        >
+          Remove Location
+        </button>
       </div>
     </div>
-  )
+  );
 };
 
 export default locationCard;
