@@ -4,6 +4,7 @@ import Home from "./home/home";
 import AnimalList from "./animal/animalList";
 import AnimalDetail from "./animal/animalDetail";
 import AnimalForm from "./animal/animalForm";
+import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationList from "./location/locationList";
 import LocationDetail from "./location/locationDetail";
 import LocationForm from "./location/LocationForm";
@@ -38,6 +39,7 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/animals/:animalId(\d+)"
         render={(props) => {
           if (isAuthenticated()) {
@@ -47,6 +49,16 @@ const ApplicationViews = () => {
                 {...props}
               />
             );
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+      <Route
+        path="/animals/:animalId(\d+)/edit"
+        render={(props) => {
+          if (isAuthenticated()) {
+            return <AnimalEditForm {...props} />;
           } else {
             return <Redirect to="/login" />;
           }

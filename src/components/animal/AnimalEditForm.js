@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Manager from "../../modules/Manager";
 import "../../styles/forms.css";
 
-const AnimalForm = (props) => {
+const AnimalEditForm = (props) => {
   const [animal, setAnimal] = useState({ name: "", breed: "", pic: "" });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -12,17 +12,29 @@ const AnimalForm = (props) => {
     setAnimal(stateToChange);
   };
 
-  const constructNewAnimal = (evt) => {
+  const updateExistingAnimal = (evt) => {
     evt.preventDefault();
-    if (animal.name === "" || animal.breed === "") {
-      window.alert("Please input an animal name and breed");
-    } else {
-      setIsLoading(true);
-      Manager.post("animals", animal).then(() =>
+    setIsLoading(true);
+
+    const editedAnimal = {
+      id: parseInt(props.match.params.animalId),
+      name: animal.name,
+      breed: animal.breed,
+      pic: animal.pic
+    };
+
+    Manager.update("animals", editedAnimal)
+      .then(() =>
         props.history.push("/animals")
       );
-    }
   };
+
+  useEffect(() => {
+    Manager.get("animals", props.match.params.animalId).then((animal) => {
+      setAnimal(animal);
+      setIsLoading(false);
+    });
+  }, [props.match.params.animalId]);
 
   return (
     <>
@@ -32,17 +44,19 @@ const AnimalForm = (props) => {
             <input
               type="text"
               required
+              className="form-control"
               onChange={handleFieldChange}
               id="name"
-              placeholder="Animal name"
+              value={animal.name}
             />
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Animal</label>
             <input
               type="text"
               required
+              className="form-control"
               onChange={handleFieldChange}
               id="breed"
-              placeholder="Breed"
+              value={animal.breed}
             />
             <label htmlFor="breed">Breed</label>
           </div>
@@ -50,7 +64,8 @@ const AnimalForm = (props) => {
             <button
               type="button"
               disabled={isLoading}
-              onClick={constructNewAnimal}
+              onClick={updateExistingAnimal}
+              className="btn btn-primary"
             >
               Submit
             </button>
@@ -61,4 +76,4 @@ const AnimalForm = (props) => {
   );
 };
 
-export default AnimalForm;
+export default AnimalEditForm;

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import LocationCard from "./locationCard";
-import LocationManager from "../../modules/locationManager";
+import Manager from "../../modules/Manager";
 
 const LocationList = (props) => {
   const [locations, setLocations] = useState([]);
 
   const getLocations = () => {
-    return LocationManager.getAll().then((locations) => {
+    return Manager.getAll("locations").then((locations) => {
       setLocations(locations);
     });
   };
 
   const removeLocation = (id) => {
-    LocationManager.delete(id).then(
-      LocationManager.getAll().then(setLocations)
+    Manager.delete("locations", id).then(
+      Manager.getAll("locations").then(setLocations)
     );
   };
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LocationManager from "../../modules/locationManager";
+import Manager from "../../modules/Manager";
 import "../../styles/forms.css";
 
 const LocationForm = (props) => {
@@ -18,7 +18,7 @@ const LocationForm = (props) => {
       window.alert("Please complete all fields.");
     } else {
       setIsLoading(true);
-      LocationManager.post(location).then(() =>
+      Manager.post("locations", location).then(() =>
         props.history.push("/locations")
       );
     }
