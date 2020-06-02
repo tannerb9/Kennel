@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import LocationManager from "../../modules/locationManager";
-import "./locationForm.css";
+import "../../forms.css";
 
 const LocationForm = (props) => {
   const [location, setLocation] = useState({ name: "", address: "" });
