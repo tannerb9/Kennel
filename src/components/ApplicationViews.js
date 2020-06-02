@@ -10,6 +10,7 @@ import LocationForm from "./location/LocationForm";
 import EmployeeList from "./employee/employeeList";
 import EmployeeForm from "./employee/employeeForm";
 import OwnerList from "./owner/ownerList";
+import OwnerForm from "./owner/OwnerForm";
 
 const ApplicationViews = () => {
   return (
@@ -70,9 +71,16 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/owners"
         render={(props) => {
-          return <OwnerList />;
+          return <OwnerList {...props} />;
+        }}
+      />
+      <Route
+        path="/owners/new"
+        render={(props) => {
+          return <OwnerForm {...props} />;
         }}
       />
       <Route
