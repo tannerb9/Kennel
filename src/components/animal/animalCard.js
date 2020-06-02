@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../cards.css";
+import "../../styles/cards.css";
 
 const AnimalCard = (props) => {
   return (
     <div className="card">
       <div className="card-content">
         <h3 className="card-petname">{props.animal.name}</h3>
-        <picture>
-          {/* <img src={require(`./${props.animal.pic}`)} alt={props.animal.name} /> */}
-        </picture>
+        {/* <picture>
+          <img src={require(`./${props.animal.pic}`)} alt={props.animal.name} />
+        </picture> */}
         <p>Breed: {props.animal.breed}</p>
         <Link to={`/animals/${props.animal.id}`}>
           <button>Details</button>

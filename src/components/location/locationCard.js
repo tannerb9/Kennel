@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../cards.css";
+import "../../styles/cards.css";
 
 const locationCard = (props) => {
   return (
