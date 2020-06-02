@@ -12,7 +12,7 @@ const Login = (props) => {
   const handleLogin = (evt) => {
     evt.preventDefault();
     sessionStorage.setItem("credentials", JSON.stringify(credentials));
-    props.history.push("/animals");
+    props.history.push("/");
   };
 
   return (
