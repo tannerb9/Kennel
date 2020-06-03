@@ -3,32 +3,31 @@ import Manager from "../../modules/Manager";
 import handleFieldChange from "../../helpers/functions";
 import "../../styles/forms.css";
 
-const AnimalEditForm = (props) => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", pic: "" });
+const LocationEditForm = (props) => {
+  const [location, setLocation] = useState({ name: "", address: "" });
   const [isLoading, setIsLoading] = useState(false);
 
-  const updateExistingAnimal = (evt) => {
+  const updateExistingLocation = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
 
-    const editedAnimal = {
-      id: parseInt(props.match.params.animalId),
-      name: animal.name,
-      breed: animal.breed,
-      pic: animal.pic,
+    const editedLocation = {
+      id: parseInt(props.match.params.locationId),
+      name: location.name,
+      address: location.address,
     };
 
-    Manager.update("animals", editedAnimal).then(() =>
-      props.history.push("/animals")
+    Manager.update("locations", editedLocation).then(() =>
+      props.history.push("/locations")
     );
   };
 
   useEffect(() => {
-    Manager.get("animals", props.match.params.animalId).then((animal) => {
-      setAnimal(animal);
+    Manager.get("locations", props.match.params.locationId).then((location) => {
+      setLocation(location);
       setIsLoading(false);
     });
-  }, [props.match.params.animalId]);
+  }, [props.match.params.locationId]);
 
   return (
     <>
@@ -39,26 +38,26 @@ const AnimalEditForm = (props) => {
               type="text"
               required
               className="form-control"
-              onChange={(evt) => handleFieldChange(evt, animal, setAnimal)}
+              onChange={(evt) => handleFieldChange(evt, location, setLocation)}
               id="name"
-              value={animal.name}
+              value={location.name}
             />
-            <label htmlFor="name">Animal</label>
+            <label htmlFor="name">Location</label>
             <input
               type="text"
               required
               className="form-control"
-              onChange={(evt) => handleFieldChange(evt, animal, setAnimal)}
-              id="breed"
-              value={animal.breed}
+              onChange={(evt) => handleFieldChange(evt, location, setLocation)}
+              id="address"
+              value={location.address}
             />
-            <label htmlFor="breed">Breed</label>
+            <label htmlFor="address">Address</label>
           </div>
           <div className="alignRight">
             <button
               type="button"
               disabled={isLoading}
-              onClick={updateExistingAnimal}
+              onClick={updateExistingLocation}
               className="btn btn-primary"
             >
               Submit
@@ -70,4 +69,4 @@ const AnimalEditForm = (props) => {
   );
 };
 
-export default AnimalEditForm;
+export default LocationEditForm;

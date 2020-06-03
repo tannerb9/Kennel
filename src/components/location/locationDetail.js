@@ -13,6 +13,7 @@ const LocationDetail = (props) => {
       props.history.push("/locations")
     );
   };
+
   useEffect(() => {
     Manager.get("locations", props.locationId).then((location) => {
       setLocation({ name: location.name, address: location.address });
@@ -25,6 +26,15 @@ const LocationDetail = (props) => {
       <div className="card-content">
         <h3>{location.name}</h3>
         <address className="card-location">{location.address}</address>
+        <button
+          type="button"
+          disabled={isLoading}
+          onClick={() =>
+            props.history.push(`/locations/${props.locationId}/edit`)
+          }
+        >
+          Edit
+        </button>
         <button type="button" disabled={isLoading} onClick={handleDelete}>
           Remove Location
         </button>
