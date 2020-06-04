@@ -7,6 +7,15 @@ export default {
   getAll(tab) {
     return fetch(`${remoteURL}/${tab}`).then((data) => data.json());
   },
+  getRandomId() {
+    return fetch(`${remoteURL}/animals`)
+      .then((data) => data.json())
+      .then((animals) => {
+        const randomIndex = Math.floor(Math.random() * animals.length);
+        const randomAnimal = animals[randomIndex];
+        return randomAnimal.id;
+      });
+  },
   delete(tab, id) {
     return fetch(`${remoteURL}/${tab}/${id}`, {
       method: "DELETE",
