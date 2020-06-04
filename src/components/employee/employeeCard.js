@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../styles/cards.css";
 
 const employeeCard = (props) => {
@@ -9,6 +10,9 @@ const employeeCard = (props) => {
           Name: <span className="card-employeeName">{props.employee.name}</span>
         </h3>
         <p>Role: {props.employee.role}</p>
+        <Link to={`/employees/${props.employee.id}/edit`}>
+          <button>Edit</button>
+        </Link>
         <button
           type="button"
           onClick={() => props.terminateEmployee(props.employee.id)}

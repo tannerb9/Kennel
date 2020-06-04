@@ -3,32 +3,30 @@ import Manager from "../../modules/Manager";
 import { handleFieldChange } from "../../helpers/helpers";
 import "../../styles/forms.css";
 
-const AnimalEditForm = (props) => {
-  const [animal, setAnimal] = useState({ name: "", breed: "", pic: "" });
+const EmployeeEditForm = (props) => {
+  const [employee, setEmployee] = useState({ name: "", role: "" });
   const [isLoading, setIsLoading] = useState(false);
 
-  const updateExistingAnimal = (evt) => {
+  const updateExistingEmployee = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
-
-    const editedAnimal = {
-      id: parseInt(props.match.params.animalId),
-      name: animal.name,
-      breed: animal.breed,
-      pic: animal.pic,
+    const editedEmployee = {
+      id: props.match.params.employeeId,
+      name: employee.name,
+      role: employee.role,
     };
 
-    Manager.update("animals", editedAnimal).then(() =>
-      props.history.push("/animals")
+    Manager.update("employees", editedEmployee).then(() =>
+      props.history.push("/employees")
     );
   };
 
   useEffect(() => {
-    Manager.get("animals", props.match.params.animalId).then((animal) => {
-      setAnimal(animal);
+    Manager.get("employees", props.match.params.employeeId).then((employee) => {
+      setEmployee(employee);
       setIsLoading(false);
     });
-  }, [props.match.params.animalId]);
+  }, [props.match.params.employeeId]);
 
   return (
     <>
@@ -39,26 +37,26 @@ const AnimalEditForm = (props) => {
               type="text"
               required
               className="form-control"
-              onChange={(evt) => handleFieldChange(evt, animal, setAnimal)}
+              onChange={(evt) => handleFieldChange(evt, employee, setEmployee)}
               id="name"
-              value={animal.name}
+              value={employee.name}
             />
-            <label htmlFor="name">Animal</label>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               required
               className="form-control"
-              onChange={(evt) => handleFieldChange(evt, animal, setAnimal)}
-              id="breed"
-              value={animal.breed}
+              onChange={(evt) => handleFieldChange(evt, employee, setEmployee)}
+              id="role"
+              value={employee.role}
             />
-            <label htmlFor="breed">Breed</label>
+            <label htmlFor="role">Role</label>
           </div>
           <div className="alignRight">
             <button
               type="button"
               disabled={isLoading}
-              onClick={updateExistingAnimal}
+              onClick={updateExistingEmployee}
               className="btn btn-primary"
             >
               Submit
@@ -70,4 +68,4 @@ const AnimalEditForm = (props) => {
   );
 };
 
-export default AnimalEditForm;
+export default EmployeeEditForm;

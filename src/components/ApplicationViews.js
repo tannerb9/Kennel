@@ -11,8 +11,10 @@ import LocationForm from "./location/LocationForm";
 import LocationEditForm from "./location/LocationEditForm";
 import EmployeeList from "./employee/employeeList";
 import EmployeeForm from "./employee/employeeForm";
+import EmployeeEditForm from "./employee/EmployeeEditForm";
 import OwnerList from "./owner/ownerList";
 import OwnerForm from "./owner/OwnerForm";
+import OwnerEditForm from "./owner/OwnerEditForm";
 import Login from "./auth/Login";
 
 const ApplicationViews = () => {
@@ -144,6 +146,16 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        path="/owners/:ownerId(\d+)/edit"
+        render={(props) => {
+          if (isAuthenticated()) {
+            return <OwnerEditForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+      <Route
         exact
         path="/employees"
         render={(props) => {
@@ -159,6 +171,16 @@ const ApplicationViews = () => {
         render={(props) => {
           if (isAuthenticated()) {
             return <EmployeeForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+      <Route
+        path="/employees/:employeeId(\d+)/edit"
+        render={(props) => {
+          if (isAuthenticated()) {
+            return <EmployeeEditForm {...props} />;
           } else {
             return <Redirect to="/login" />;
           }

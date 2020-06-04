@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Manager from "../../modules/Manager";
-import handleFieldChange from "../../helpers/functions";
+import { handleFieldChange } from "../../helpers/helpers";
 import "../../styles/forms.css";
 
 const LocationEditForm = (props) => {
