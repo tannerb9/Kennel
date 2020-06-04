@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import EmployeeManager from "../../modules/employeeManager";
+import Manager from "../../modules/Manager";
 import "../../styles/forms.css";
 
 const EmployeeForm = (props) => {
@@ -18,7 +18,7 @@ const EmployeeForm = (props) => {
       window.alert("Please complete all fields.");
     } else {
       setIsLoading(true);
-      EmployeeManager.post(employee).then(() =>
+      Manager.post("employees", employee).then(() =>
         props.history.push("/employees")
       );
     }

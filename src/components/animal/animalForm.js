@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AnimalManager from "../../modules/animalManager";
+import Manager from "../../modules/Manager";
 import "../../styles/forms.css";
 
 const AnimalForm = (props) => {
@@ -18,7 +18,9 @@ const AnimalForm = (props) => {
       window.alert("Please input an animal name and breed");
     } else {
       setIsLoading(true);
-      AnimalManager.post(animal).then(() => props.history.push("/animals"));
+      Manager.post("animals", animal).then(() =>
+        props.history.push("/animals")
+      );
     }
   };
 

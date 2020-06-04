@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import EmployeeCard from "./employeeCard";
-import EmployeeManager from "../../modules/employeeManager";
+import Manager from "../../modules/Manager";
 
 const EmployeeList = (props) => {
   const [employees, setEmployees] = useState([]);
 
   const getEmployees = () => {
-    return EmployeeManager.getAll().then((employees) => {
+    return Manager.getAll("employees").then((employees) => {
       setEmployees(employees);
     });
   };
 
   const terminateEmployee = (id) => {
-    EmployeeManager.delete(id).then(() =>
-      EmployeeManager.getAll().then(setEmployees)
+    Manager.delete("employees", id).then(() =>
+      Manager.getAll("employees").then(setEmployees)
     );
   };
 

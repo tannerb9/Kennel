@@ -27,7 +27,7 @@
     },
     {
       "id": 2,
-      "name": "Jeff",
+      "name": "Jefffff",
       "role": "Janitor"
     },
     {
@@ -51,27 +51,22 @@
       "id": 3,
       "name": "Kyle",
       "pet_name": "Esme"
-    },
-    {
-      "name": "Jud",
-      "pet_name": "Lily",
-      "id": 4
     }
   ],
   "locations": [
     {
       "id": 1,
-      "name": "Nowhere Clinic",
+      "name": "East Nashville",
       "address": "123 Not This St"
     },
     {
       "id": 2,
-      "name": "Somewhere Clinic",
+      "name": "12 South",
       "address": "456 That St"
     },
     {
       "id": 3,
-      "name": "Anywhere Clinic",
+      "name": "Sylvan Park",
       "address": "789 Wander Way"
     }
   ]

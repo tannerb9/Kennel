@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import OwnerManager from "../../modules/ownerManager";
+import Manager from "../../modules/Manager";
 import "../../styles/forms.css";
 
 const OwnerForm = (props) => {
@@ -15,7 +15,7 @@ const OwnerForm = (props) => {
   const constructNewOwner = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
-    OwnerManager.post(owner).then(() => {
+    Manager.post("owners", owner).then(() => {
       props.history.push("/owners");
     });
   };
