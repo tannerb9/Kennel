@@ -24,6 +24,7 @@ const AnimalEditForm = (props) => {
       props.history.push("/animals")
     );
   };
+
   useEffect(() => {
     Manager.getAll("employees").then((employees) => {
       setEmployees(employees);
