@@ -40,6 +40,7 @@ const EmployeeList = (props) => {
             key={employee.id}
             employee={employee}
             terminateEmployee={terminateEmployee}
+            {...props}
           />
         ))}
       </div>

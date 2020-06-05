@@ -16,6 +16,11 @@ export default {
         return randomAnimal.id;
       });
   },
+  getWithAnimals(tab, id) {
+    return fetch(`${remoteURL}/${tab}/${id}?_embed=animals`).then((data) =>
+      data.json()
+    );
+  },
   delete(tab, id) {
     return fetch(`${remoteURL}/${tab}/${id}`, {
       method: "DELETE",
