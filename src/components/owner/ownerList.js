@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import OwnerCard from "./ownerCard";
 import Manager from "../../modules/Manager";
+import { removeOb, removeObj } from "../../helpers/helpers";
 
 const OwnerList = (props) => {
   const [owners, setOwners] = useState([]);
@@ -9,10 +10,6 @@ const OwnerList = (props) => {
     Manager.getAll("owners").then((owners) => {
       setOwners(owners);
     });
-  };
-
-  const removeOwner = (id) => {
-    Manager.delete("owners", id).then(Manager.getAll("owners").then(setOwners));
   };
 
   useEffect(() => {
@@ -34,7 +31,11 @@ const OwnerList = (props) => {
       </section>
       <div className="container-cards">
         {owners.map((owner) => (
-          <OwnerCard key={owner.id} owner={owner} removeOwner={removeOwner} />
+          <OwnerCard
+            key={owner.id}
+            owner={owner}
+            removeOwner={(evt) => removeObj("owners", evt, setOwners)}
+          />
         ))}
       </div>
     </>
