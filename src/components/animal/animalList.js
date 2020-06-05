@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AnimalCard from "./animalCard";
 import Manager from "../../modules/Manager";
+import { removeObj } from "../../helpers/helpers";
 
 const AnimalList = (props) => {
   const [animals, setAnimals] = useState([]);
@@ -9,12 +10,6 @@ const AnimalList = (props) => {
     return Manager.getAll("animals").then((animalsFromAPI) => {
       setAnimals(animalsFromAPI);
     });
-  };
-
-  const checkoutAnimal = (id) => {
-    Manager.delete("animals", id).then(() =>
-      Manager.getAll("animals").then(setAnimals)
-    );
   };
 
   useEffect(() => {
@@ -39,7 +34,7 @@ const AnimalList = (props) => {
           <AnimalCard
             key={animal.id}
             animal={animal}
-            checkoutAnimal={checkoutAnimal}
+            checkoutAnimal={(evt) => removeObj("animals", evt, setAnimals)}
             {...props}
           />
         ))}

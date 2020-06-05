@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LocationCard from "./locationCard";
 import Manager from "../../modules/Manager";
+import { removeObj } from "../../helpers/helpers";
 
 const LocationList = (props) => {
   const [locations, setLocations] = useState([]);
@@ -9,12 +10,6 @@ const LocationList = (props) => {
     return Manager.getAll("locations").then((locations) => {
       setLocations(locations);
     });
-  };
-
-  const removeLocation = (id) => {
-    Manager.delete("locations", id).then(
-      Manager.getAll("locations").then(setLocations)
-    );
   };
 
   useEffect(() => {
@@ -39,7 +34,7 @@ const LocationList = (props) => {
           <LocationCard
             key={location.id}
             location={location}
-            removeLocation={removeLocation}
+            removeLocation={(evt) => removeObj("locations", evt, setLocations)}
           />
         ))}
       </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EmployeeCard from "./employeeCard";
 import Manager from "../../modules/Manager";
+import { removeObj } from "../../helpers/helpers";
 
 const EmployeeList = (props) => {
   const [employees, setEmployees] = useState([]);
@@ -9,12 +10,6 @@ const EmployeeList = (props) => {
     return Manager.getAll("employees").then((employees) => {
       setEmployees(employees);
     });
-  };
-
-  const terminateEmployee = (id) => {
-    Manager.delete("employees", id).then(() =>
-      Manager.getAll("employees").then(setEmployees)
-    );
   };
 
   useEffect(() => {
@@ -39,7 +34,9 @@ const EmployeeList = (props) => {
           <EmployeeCard
             key={employee.id}
             employee={employee}
-            terminateEmployee={terminateEmployee}
+            terminateEmployee={(evt) =>
+              removeObj("employees", evt, setEmployees)
+            }
             {...props}
           />
         ))}
