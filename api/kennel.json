@@ -3,20 +3,23 @@
     {
       "id": 1,
       "name": "Blaze",
-      "breed": "Collie",
-      "pic": "Collie.jpg"
+      "breed": "Border Collie",
+      "pic": "Collie.jpg",
+      "employeeId": 2
     },
     {
       "id": 2,
       "name": "Decker",
       "breed": "German Shepherd",
-      "pic": "German Shepherd.jpg"
+      "pic": "German Shepherd.jpg",
+      "employeeId": 1
     },
     {
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull",
-      "pic": "Pitbull.jpg"
+      "pic": "Pitbull.jpg",
+      "employeeId": 3
     }
   ],
   "employees": [
@@ -27,8 +30,8 @@
     },
     {
       "id": 2,
-      "name": "Jeff",
-      "role": "Janitor"
+      "name": "Janice",
+      "role": "Groomer"
     },
     {
       "id": 3,

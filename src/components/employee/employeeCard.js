@@ -15,6 +15,14 @@ const employeeCard = (props) => {
         </Link>
         <button
           type="button"
+          onClick={() => {
+            props.history.push(`/employees/${props.employee.id}/details`);
+          }}
+        >
+          Details
+        </button>
+        <button
+          type="button"
           onClick={() => props.terminateEmployee(props.employee.id)}
         >
           Terminate
